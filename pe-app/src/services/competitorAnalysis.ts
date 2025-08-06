@@ -47,7 +47,7 @@ export interface CompetitorDetail {
     strategy: string
     position: string
     responsiveness: string
-    consistency: string
+    consistency: number
   }
   pricingLag: {
     days: number
@@ -289,7 +289,12 @@ export function getCompetitorDetail(id: string): CompetitorDetail {
   // Determine intraday behavior based on competitor
   let intradayBehavior: { frequency: 'Never' | 'Rarely' | 'Sometimes' | 'Frequently' | 'Always'; typicalTime?: string }
   let metrics: { spot: number; upPercentage: number; downPercentage: number; largeMovements: number }
-  let behavioralProfile: { strategy: string; position: string; responsiveness: string; consistency: string }
+  let behavioralProfile: { strategy: string; position: string; responsiveness: string; consistency: number }
+  
+  // Initialize default values
+  intradayBehavior = { frequency: 'Sometimes', typicalTime: '2:00 PM' }
+  metrics = { spot: 0.025, upPercentage: 75, downPercentage: 75, largeMovements: 3 }
+  behavioralProfile = { strategy: 'Position', position: '#3-5', responsiveness: 'Moderate', consistency: 50 }
   
   if (behavior) {
     intradayBehavior = {
@@ -300,13 +305,13 @@ export function getCompetitorDetail(id: string): CompetitorDetail {
     // Set metrics based on competitor type
     if (competitorName === 'ExxonMobil') {
       metrics = { spot: 0.0308, upPercentage: 95.0, downPercentage: 94.8, largeMovements: 0 }
-      behavioralProfile = { strategy: 'Leader', position: '#1', responsiveness: 'Fast', consistency: 'High' }
+      behavioralProfile = { strategy: 'Leader', position: '#1', responsiveness: 'Fast', consistency: 89 }
     } else if (competitorName === 'Valero') {
       metrics = { spot: 0.0285, upPercentage: 90.2, downPercentage: 89.8, largeMovements: 2 }
-      behavioralProfile = { strategy: 'Follower', position: '#2-3', responsiveness: 'Fast', consistency: 'High' }
+      behavioralProfile = { strategy: 'Follower', position: '#2-3', responsiveness: 'Fast', consistency: 82 }
     } else if (competitorName === 'Marathon') {
       metrics = { spot: 0.0262, upPercentage: 83.9, downPercentage: 84.1, largeMovements: 5 }
-      behavioralProfile = { strategy: 'Position', position: '#2-4', responsiveness: 'Moderate', consistency: 'Medium' }
+      behavioralProfile = { strategy: 'Position', position: '#2-4', responsiveness: 'Moderate', consistency: 75 }
     }
   } else {
     // Default behavior for other competitors
@@ -330,7 +335,7 @@ export function getCompetitorDetail(id: string): CompetitorDetail {
       strategy: strategies[seed % strategies.length],
       position: '#3-5',
       responsiveness: 'Moderate',
-      consistency: 'Medium',
+      consistency: 50,
     }
   }
   

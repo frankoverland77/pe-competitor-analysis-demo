@@ -25,7 +25,7 @@ export function PriceMovementChart({ data, metrics, timeRange = '90d' }: PriceMo
   
   const filteredData = data.filter(item => new Date(item.date) >= cutoffDate)
   
-  const chartData = filteredData.map((item, index) => ({
+  const chartData = filteredData.map((item) => ({
     x: item.marketChange,
     y: item.competitorChange,
     // Color points based on quadrant

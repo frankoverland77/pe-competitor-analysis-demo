@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CompetitorAnalysisHeader } from '@/components/competitor-analysis/grid/CompetitorAnalysisHeader'
 import { SearchBar } from '@/components/competitor-analysis/grid/SearchBar'
@@ -129,7 +129,7 @@ export function CompetitorAnalysisGrid() {
 
   return (
     <div className="min-h-screen bg-[#F7F7F7]">
-      <CompetitorAnalysisHeader onExport={handleExport} />
+      <CompetitorAnalysisHeader />
       
       <div className="bg-[#F7F7F7]">
         <div className="px-6 py-4">
@@ -165,7 +165,6 @@ export function CompetitorAnalysisGrid() {
         
         <ControlBar
           totalCount={filteredData.length}
-          onExport={handleExport}
         />
         
         <div className="h-[calc(100vh-250px)]">

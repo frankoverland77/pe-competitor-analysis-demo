@@ -125,7 +125,7 @@ const WorkingAgGrid = () => {
           columnDefs={columnDefs}
           defaultColDef={defaultColDef}
           animateRows={true}
-          onGridReady={(params) => {
+          onGridReady={() => {
             // Enable column header dragging
             setTimeout(() => {
               const headers = document.querySelectorAll('.ag-header-cell-label');

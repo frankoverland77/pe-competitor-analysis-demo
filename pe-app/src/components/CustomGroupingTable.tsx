@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 
 interface RowData {
@@ -62,7 +62,7 @@ const CustomGroupingTable: React.FC = () => {
     },
     { field: 'department', headerName: 'Department' },
     { field: 'role', headerName: 'Role' },
-    { field: 'salary', headerName: 'Salary', valueFormatter: (params) => `$${params.value?.toLocaleString()}` },
+    { field: 'salary', headerName: 'Salary', valueFormatter: (params: any) => `$${params.value?.toLocaleString()}` },
     { field: 'location', headerName: 'Location' },
     { field: 'joinDate', headerName: 'Join Date' },
   ], [groupedFields]);

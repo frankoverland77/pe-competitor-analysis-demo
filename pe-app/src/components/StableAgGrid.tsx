@@ -58,7 +58,7 @@ const StableAgGrid: React.FC = () => {
 
   const columnDefs = useMemo((): ColDef<GroupedRowData>[] => [
     {
-      field: 'selection',
+      field: 'selection' as any,
       headerName: '',
       width: 50,
       headerCheckboxSelection: true,
@@ -76,11 +76,11 @@ const StableAgGrid: React.FC = () => {
       },
       cellRenderer: (params: { data: GroupedRowData; value: string }) => {
         if (params.data.__isGroup) {
-          const indent = params.data.__level * 20;
+          const indent = (params.data.__level || 0) * 20;
           return (
             <div style={{ paddingLeft: `${indent}px` }} className="flex items-center gap-2">
               <button 
-                onClick={() => toggleGroup(params.data.__groupId)}
+                onClick={() => toggleGroup(params.data.__groupId || '')}
                 className="text-xs"
               >
                 {params.data.__expanded ? '▼' : '▶'}
@@ -240,9 +240,9 @@ const StableAgGrid: React.FC = () => {
           __groupField: currentField,
           __groupValue: groupValue,
           __childCount: items.length,
-          __level: level,
+          __level: Number(level),
           __expanded: isExpanded,
-          id: groupId,
+          id: Math.floor(Math.random() * 1000000),
           product: '',
           priceEffective: '',
           group: '',

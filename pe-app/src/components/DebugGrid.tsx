@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 
 const DebugGrid = () => {
@@ -36,9 +36,9 @@ const DebugGrid = () => {
   ];
 
   const columnDefs = [
-    { field: 'make', headerName: 'Make' },
-    { field: 'model', headerName: 'Model' },
-    { field: 'price', headerName: 'Price' }
+    { field: 'make' as const, headerName: 'Make' },
+    { field: 'model' as const, headerName: 'Model' },
+    { field: 'price' as const, headerName: 'Price' }
   ];
 
   return (

@@ -1,7 +1,6 @@
 import { useCallback, useMemo } from 'react'
 import { AgGridReact } from 'ag-grid-react'
 import type { ColDef } from 'ag-grid-community'
-import { Button } from '@/components/ui/button'
 import { CompetitorBadge } from '../shared/CompetitorBadge'
 import { ConsistencyBadge } from '../shared/ConsistencyBadge'
 import type { CompetitorData } from '@/services/competitorAnalysis'
@@ -77,7 +76,7 @@ export function CompetitorDataGrid({ data, onAnalyze }: CompetitorDataGridProps)
       },
     },
     {
-      field: 'actions',
+      field: 'actions' as any,
       headerName: 'ACTIONS',
       flex: 0.8,
       minWidth: 120,

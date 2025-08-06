@@ -1,8 +1,4 @@
-interface CompetitorAnalysisHeaderProps {
-  onExport: () => void
-}
-
-export function CompetitorAnalysisHeader({ onExport }: CompetitorAnalysisHeaderProps) {
+export function CompetitorAnalysisHeader() {
   return (
     <div className="bg-[#F7F7F7] px-6 py-6">
       <div>

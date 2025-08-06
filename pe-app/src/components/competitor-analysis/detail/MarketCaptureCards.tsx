@@ -20,7 +20,6 @@ export function MarketCaptureCards({
   downPercentage, 
   intradayFrequency = 'Frequently',
   intradayTime = '11:00 AM',
-  timeRange = '90d',
   behavioralProfile
 }: MarketCaptureCardsProps) {
   // Calculate percentage based on frequency label

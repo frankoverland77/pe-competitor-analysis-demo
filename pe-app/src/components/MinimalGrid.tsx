@@ -1,4 +1,3 @@
-import React from 'react';
 import { AgGridReact } from 'ag-grid-react';
 
 const MinimalGrid = () => {
@@ -9,9 +8,9 @@ const MinimalGrid = () => {
   ];
 
   const columnDefs = [
-    { field: 'make' },
-    { field: 'model' },
-    { field: 'price' }
+    { field: 'make' as const },
+    { field: 'model' as const },
+    { field: 'price' as const }
   ];
 
   return (
