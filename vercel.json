@@ -1,4 +1,10 @@
 {
   "buildCommand": "cd pe-app && npm install && npm run build",
-  "outputDirectory": "pe-app/dist"
+  "outputDirectory": "pe-app/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
