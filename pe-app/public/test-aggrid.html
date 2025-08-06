@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AG-Grid Test</title>
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/styles/ag-theme-quartz.css">
+</head>
+<body>
+    <h1>AG-Grid Test - If you see a grid below, AG-Grid is working</h1>
+    <div id="myGrid" class="ag-theme-quartz" style="height: 400px; width: 600px;"></div>
+    
+    <script>
+        const gridOptions = {
+            columnDefs: [
+                { field: 'make' },
+                { field: 'model' },
+                { field: 'price' }
+            ],
+            rowData: [
+                { make: 'Toyota', model: 'Celica', price: 35000 },
+                { make: 'Ford', model: 'Mondeo', price: 32000 },
+                { make: 'Porsche', model: 'Boxster', price: 72000 }
+            ]
+        };
+
+        const gridDiv = document.querySelector('#myGrid');
+        new agGrid.Grid(gridDiv, gridOptions);
+    </script>
+</body>
+</html>

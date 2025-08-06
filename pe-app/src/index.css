@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AG-Grid CSS is imported in main.tsx */
+
+@layer base {
+  :root {
+    /* Design System Colors */
+    --background: 0 0% 97%; /* #F7F7F7 */
+    --foreground: 0 0% 35%; /* #595959 */
+    
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 0 0% 35%; /* #595959 */
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 35%;
+    
+    /* Primary Color */
+    --primary: 142 40% 54%; /* #51B073 */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 0 0% 97%; /* #F7F7F7 */
+    --secondary-foreground: 0 0% 35%;
+    
+    --muted: 0 0% 97%; /* #F7F7F7 */
+    --muted-foreground: 0 0% 64%; /* #a2a2a2 */
+    
+    --accent: 142 40% 54%; /* #51B073 */
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 87%; /* #DDDDDD */
+    --input: 0 0% 87%; /* #DDDDDD */
+    --ring: 142 40% 54%;
+    
+    --radius: 0.375rem; /* 6px */
+    
+    /* Table specific colors */
+    --table-header-bg: 0 0% 94%; /* #EFEFEF */
+    --table-border: 0 0% 87%; /* #DDDDDD */
+    --table-cell-bg: 0 0% 100%; /* #FFFFFF */
+    --table-row-hover: 0 0% 98%; /* #fafafa */
+    
+    /* Text colors */
+    --text-primary: 0 0% 35%; /* #595959 */
+    --text-secondary: 0 0% 64%; /* #a2a2a2 */
+    --text-white: 0 0% 100%; /* #ffffff */
+  }
+  
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 20% 98%;
+    
+    --card: 224 71% 8%;
+    --card-foreground: 210 20% 98%;
+    
+    --popover: 224 71% 8%;
+    --popover-foreground: 210 20% 98%;
+    
+    --primary: 142 40% 60%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --accent: 142 40% 50%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 62.8% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142 40% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+  }
+}
+
+/* Custom AG-Grid Theme - Figma Design */
+.ag-theme-figma {
+  --ag-background-color: #ffffff;
+  --ag-foreground-color: #1F2937;
+  --ag-header-background-color: #f8f8f8;
+  --ag-header-foreground-color: #6B7280;
+  --ag-odd-row-background-color: #ffffff;
+  --ag-row-hover-color: #F9FAFB;
+  --ag-border-color: #E5E7EB;
+  --ag-header-cell-hover-background-color: #f0f0f0;
+  --ag-cell-horizontal-padding: 12px;
+  --ag-header-height: 40px;
+  --ag-row-height: 56px;
+  --ag-font-family: 'Lato', sans-serif;
+  --ag-font-size: 14px;
+  --ag-line-height: 1.5;
+  --ag-selected-row-background-color: #10B981;
+  --ag-grid-size: 0;
+}
+
+/* Ensure grid takes full width */
+.ag-theme-figma .ag-root-wrapper {
+  width: 100%;
+  font-family: 'Lato', sans-serif !important;
+}
+
+.ag-theme-figma .ag-root {
+  width: 100%;
+  font-family: 'Lato', sans-serif !important;
+}
+
+/* Ensure Lato font is applied to all grid elements */
+.ag-theme-figma {
+  font-family: 'Lato', sans-serif !important;
+}
+
+.ag-theme-figma * {
+  font-family: 'Lato', sans-serif !important;
+}
+
+.ag-theme-figma .ag-body-viewport {
+  width: 100% !important;
+}
+
+.ag-theme-figma .ag-center-cols-container {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+/* Header styling */
+.ag-theme-figma .ag-header {
+  background-color: #EFEFEF;
+  border-bottom: 1px solid #DDDDDD;
+  font-weight: 400;
+}
+
+.ag-theme-figma .ag-header-cell {
+  padding: 0 12px;
+  border-right: none;
+  background-color: #EFEFEF;
+}
+
+.ag-theme-figma .ag-header-cell-label {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1F2937;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Remove all borders except bottom */
+.ag-theme-figma .ag-row {
+  border: none;
+  border-bottom: 1px solid #DDDDDD;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+
+.ag-theme-figma .ag-row:last-child {
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.ag-theme-figma .ag-cell {
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 14px;
+  color: #595959;
+  background-color: #FFFFFF;
+}
+
+/* Row hover only - no striping */
+.ag-theme-figma .ag-row:hover {
+  background-color: #F9FAFB;
+}
+
+/* Selected row */
+.ag-theme-figma .ag-row-selected {
+  background-color: #10B981 !important;
+  opacity: 0.1;
+}
+
+.ag-theme-figma .ag-row-selected:hover {
+  background-color: #10B981 !important;
+  opacity: 0.15;
+}
+
+/* Status badges styling */
+.ag-theme-figma .status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.ag-theme-figma .status-badge.assigned {
+  background-color: #10B981;
+  opacity: 0.1;
+  color: #10B981;
+}
+
+.ag-theme-figma .status-badge.not-assigned {
+  background-color: #f5f5f5;
+  color: #999999;
+}
+
+/* Remove grid lines */
+.ag-theme-figma .ag-ltr .ag-cell {
+  border-right: none;
+}
+
+/* Custom scrollbar */
+.ag-theme-figma .ag-body-vertical-scroll-viewport {
+  scrollbar-width: thin;
+  scrollbar-color: #d9d9d9 #f5f5f5;
+}
+
+.ag-theme-figma .ag-body-vertical-scroll-viewport::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ag-theme-figma .ag-body-vertical-scroll-viewport::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+.ag-theme-figma .ag-body-vertical-scroll-viewport::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 4px;
+}
+
+.ag-theme-figma .ag-body-vertical-scroll-viewport::-webkit-scrollbar-thumb:hover {
+  background: #c0c0c0;
+}
