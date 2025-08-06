@@ -1,7 +1,8 @@
 {
-  "buildCommand": "cd pe-app && npm run build",
-  "outputDirectory": "pe-app/dist",
-  "installCommand": "cd pe-app && npm install",
+  "rootDirectory": "pe-app",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
   "framework": null,
   "rewrites": [
     {
